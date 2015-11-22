@@ -9,6 +9,7 @@ public class BrightnessObserver extends Observer {
 	public void update() {
 		
 //		update Brightness
+		System.out.println("Brightness Observer observes the state is now: " + subject.getState());
 		
 	}
 	

@@ -12,6 +12,7 @@ public class WorkDurationSubject extends Subject {
 		this.setLabel(label);
 		this.setFrom(from);
 		this.setTo(to);
+		this.setFrequency(frequency);
 		this.setSound(sound);
 		this.setVibration(vibration);
 		this.setActive(isActive);
@@ -76,7 +77,7 @@ public class WorkDurationSubject extends Subject {
 	
 	public void setDistance(Date curr) {
 		
-		this.distance = (int)((curr.getTime() - from.getTime()) / 1000 * 60);
+		this.distance = (int)((curr.getTime() - from.getTime()) / 1000);
 		this.setState(this.distance/this.frequency);
 		
 	}
