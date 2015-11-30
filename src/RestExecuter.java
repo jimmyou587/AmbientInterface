@@ -8,13 +8,13 @@ public class RestExecuter {
 	public static void main(String[] args) throws ParseException {
 		
 		DateFormat format = new SimpleDateFormat("yyMMddHHmmssZ");
-		Date from = format.parse("151121143500-0800");
-		Date to = format.parse("151121150000-0800");
-		WorkDurationSubject sub = new WorkDurationSubject("Rest1", from, to, 2, false, false, false);
-		Observer brObserver = new BrightnessObserver(sub);
-		Observer sndObserver = new SoundObserver(sub);
-		sub.registerObserver(brObserver);
-		sub.registerObserver(sndObserver);
+		Date from = format.parse("151129170000-0800");
+		Date to = format.parse("151129170800-0800");
+		WorkDuration wd = new WorkDuration("Rest1", from, to, 2, false, false, false);
+		Observer brObserver = new BrightnessObserver(wd.getSub());
+		Observer sndObserver = new SoundObserver(wd.getSub());
+		wd.regSub(brObserver);
+		wd.regSub(sndObserver);
 		
 		while(true) {
 			try {
@@ -24,7 +24,7 @@ public class RestExecuter {
 				e.printStackTrace();
 			}
 			Date curr = new Date();
-			sub.setDistance(curr);
+			wd.setDistance(curr);
 		}
 		
 	}
