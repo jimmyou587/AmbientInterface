@@ -1,13 +1,14 @@
 import java.util.Date;
 
-public class WorkDurationSubject extends Subject {
+public class WorkDuration {
 	private String label;
 	private Date from, to;
 	private int frequency;
 	private int distance = 0;
 	private boolean sound, vibration, isActive;
+	private Subject sub;
 	
-	public WorkDurationSubject(String label, Date from, Date to, int frequency, boolean sound,
+	public WorkDuration(String label, Date from, Date to, int frequency, boolean sound,
 			boolean vibration, boolean isActive) {
 		this.setLabel(label);
 		this.setFrom(from);
@@ -16,7 +17,20 @@ public class WorkDurationSubject extends Subject {
 		this.setSound(sound);
 		this.setVibration(vibration);
 		this.setActive(isActive);
-		this.setState(0);
+		this.sub = new Subject();
+		this.sub.setState(0);
+	}
+	
+	public Subject getSub() {
+		return this.sub;
+	}
+	
+	public void regSub(Observer ob) {
+		this.sub.registerObserver(ob);
+	}
+	
+	public void unRegSub(Observer ob) {
+		this.sub.unRegisterObserver(ob);
 	}
 
 	public String getLabel() {
@@ -78,7 +92,7 @@ public class WorkDurationSubject extends Subject {
 	public void setDistance(Date curr) {
 		
 		this.distance = (int)((curr.getTime() - from.getTime()) / 1000);
-		this.setState(this.distance/this.frequency);
+		this.sub.setState(this.distance/this.frequency);
 		
 	}
 
