@@ -9,7 +9,7 @@ import sun.audio.ContinuousAudioDataStream;
 
 @SuppressWarnings("restriction")
 public class SoundObserver extends Observer {
-	private static String filePath = "/Users/LO/Documents/workspace/AmbientInterface/src/beep.wav"; 
+	private static String filePath = "D:/Java Workspace/AmbientInterface/src/beep.wav"; 
 		
 	SoundObserver(Subject sub) {
 		this.subject = sub;

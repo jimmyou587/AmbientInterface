@@ -58,7 +58,7 @@ public class Ambient_Interface extends JFrame implements ActionListener {
 
 	public Ambient_Interface() {
 		initialize();
-		RestExecuter.proceed = true;
+		//RestExecuter.proceed = true;
 
 	}
 
@@ -142,9 +142,14 @@ public class Ambient_Interface extends JFrame implements ActionListener {
 		lblViberation.setBounds(20, 307, 79, 14);
 		panel_2.add(lblViberation);
 
-		JComboBox<?> comboBox = new JComboBox<Object>();
+		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(170, 250, 190, 20);
 		panel_2.add(comboBox);
+		comboBox.addItem("Every 15 sec");
+		comboBox.addItem("Every 30 sec");
+		comboBox.addItem("Every 45 sec");
+		comboBox.addItem("Every 60 sec");
+		
 
 		to_hrs_text = new JTextField();
 		to_hrs_text.setBounds(166, 188, 86, 20);
