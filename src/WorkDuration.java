@@ -4,7 +4,7 @@ public class WorkDuration {
 	private String label;
 	private Calendar from, to;
 	private int frequency;
-	private int distance = 0;
+	private int distance = 0, preDistance = 0;
 	private boolean sound, vibration, isActive;
 	private Subject sub;
 	
@@ -92,7 +92,10 @@ public class WorkDuration {
 	public void setDistance(Calendar curr) {
 		
 		this.distance = (int)((curr.getTime().getTime() - from.getTime().getTime()) / 1000);
-		this.sub.setState(this.distance/this.frequency);
+		if (this.distance - this.preDistance >= this.frequency) {
+			this.preDistance = this.distance;
+			this.sub.setState(this.distance/this.frequency);
+		}
 		
 	}
 
