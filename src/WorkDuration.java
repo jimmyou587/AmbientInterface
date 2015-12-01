@@ -1,14 +1,14 @@
-import java.util.Date;
+import java.util.Calendar;
 
 public class WorkDuration {
 	private String label;
-	private Date from, to;
+	private Calendar from, to;
 	private int frequency;
 	private int distance = 0;
 	private boolean sound, vibration, isActive;
 	private Subject sub;
 	
-	public WorkDuration(String label, Date from, Date to, int frequency, boolean sound,
+	public WorkDuration(String label, Calendar from, Calendar to, int frequency, boolean sound,
 			boolean vibration, boolean isActive) {
 		this.setLabel(label);
 		this.setFrom(from);
@@ -41,19 +41,19 @@ public class WorkDuration {
 		this.label = label;
 	}
 
-	public Date getFrom() {
+	public Calendar getFrom() {
 		return from;
 	}
 
-	public void setFrom(Date from) {
+	public void setFrom(Calendar from) {
 		this.from = from;
 	}
 
-	public Date getTo() {
+	public Calendar getTo() {
 		return to;
 	}
 
-	public void setTo(Date to) {
+	public void setTo(Calendar to) {
 		this.to = to;
 	}
 
@@ -89,9 +89,9 @@ public class WorkDuration {
 		this.isActive = isActive;
 	}
 	
-	public void setDistance(Date curr) {
+	public void setDistance(Calendar curr) {
 		
-		this.distance = (int)((curr.getTime() - from.getTime()) / 1000);
+		this.distance = (int)((curr.getTime().getTime() - from.getTime().getTime()) / 1000);
 		this.sub.setState(this.distance/this.frequency);
 		
 	}
