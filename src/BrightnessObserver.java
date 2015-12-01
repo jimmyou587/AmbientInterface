@@ -1,14 +1,16 @@
-import java.util.HashMap;
+import java.util.Hashtable;;
 
 public class BrightnessObserver extends Observer {
 	
-	static HashMap<Integer, String> hm = new HashMap<Integer, String>() {{
-		put(1, "");
-		put(2, "");
-		put(3, "");
-		put(4, "");
-		put(5, "");
-	}};
+private static Hashtable<Integer, String> hmp = new Hashtable<Integer, String>();
+	
+	static {  
+		hmp.put(1, "Clock's ticking!");
+		hmp.put(2, "Coffee break?");
+		hmp.put(3, "Take it easy!");
+		hmp.put(4, "Lunch break!");
+		hmp.put(5, "Go out for a walk, man!");
+		}
 	
 	public BrightnessObserver(Subject sub) {
 		this.subject = sub;
