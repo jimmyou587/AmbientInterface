@@ -1,10 +1,10 @@
-import java.util.Hashtable;
+import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
 public class MessageObserver extends Observer {
 	
-	private static Hashtable<Integer, String> hmp = new Hashtable<Integer, String>();
+	private static HashMap<Integer, String> hmp = new HashMap<Integer, String>();
 	
 	static {  
 		hmp.put(1, "Clock's ticking!");
